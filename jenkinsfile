@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        // Despliegue en pruebas (rama 'dev')
+        stage('Deploy to Test') {
+            when { branch 'dev' }
+            steps {
+                echo 'Desplegando en entorno de pruebas (rama dev)...'
+                // Simulación: Comandos reales irían aquí (ej: scripts bash simples)
+                sh 'echo "Despliegue en pruebas simulado exitosamente"'
+            }
+        }
+        // Despliegue en producción (rama 'main')
+        stage('Deploy to Production') {
+            when { branch 'main' }
+            steps {
+                echo 'Desplegando en producción (rama main)...'
+                sh 'echo "Despliegue en producción simulado exitosamente"'
+            }
+        }
+    }
+}
